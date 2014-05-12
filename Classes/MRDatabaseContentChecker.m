@@ -1,5 +1,5 @@
 //
-//  DatabaseContentChecker.m
+//  MRDatabaseContentChecker.m
 //
 //  Created by Michael Rhodes on 11/05/2014.
 //  Copyright (c) 2014 Mike Rhodes. All rights reserved.
@@ -12,17 +12,17 @@
 //  either express or implied. See the License for the specific language governing permissions
 //  and limitations under the License.
 
-#import "DatabaseContentChecker.h"
+#import "MRDatabaseContentChecker.h"
 
-NSString* const DatabaseContentCheckerErrorDomain =
-@"DatabaseContentCheckerErrorDomain";
-NSString* const DatabaseContentCheckerErrorsArray =
-@"DatabaseContentCheckerErrorsArray";
+NSString* const MRDatabaseContentCheckerErrorDomain =
+@"MRDatabaseContentCheckerErrorDomain";
+NSString* const MRDatabaseContentCheckerErrorsArray =
+@"MRDatabaseContentCheckerErrorsArray";
 
 /**
  A simple class to check the content of your database tables.
  */
-@implementation DatabaseContentChecker
+@implementation MRDatabaseContentChecker
 
 /**
  Format the error messages produced by other methods in this
@@ -30,7 +30,7 @@ NSString* const DatabaseContentCheckerErrorsArray =
  */
 - (NSString*)formattedErrors:(NSError*)error
 {
-    NSArray *errors = error.userInfo[DatabaseContentCheckerErrorsArray];
+    NSArray *errors = error.userInfo[MRDatabaseContentCheckerErrorsArray];
     return [errors componentsJoinedByString:@"; "];
 }
 
@@ -188,10 +188,10 @@ NSString* const DatabaseContentCheckerErrorsArray =
                                                   nil);
         NSDictionary *userInfo = @{
                                    NSLocalizedDescriptionKey: description,
-                                   DatabaseContentCheckerErrorsArray: [errors copy]
+                                   MRDatabaseContentCheckerErrorsArray: [errors copy]
                                    };
-        *error = [NSError errorWithDomain:DatabaseContentCheckerErrorDomain
-                                     code:DatabaseContentCheckerErrorValidation
+        *error = [NSError errorWithDomain:MRDatabaseContentCheckerErrorDomain
+                                     code:MRDatabaseContentCheckerErrorValidation
                                  userInfo:userInfo];
     }
 

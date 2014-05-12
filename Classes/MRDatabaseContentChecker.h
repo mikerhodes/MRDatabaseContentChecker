@@ -1,5 +1,5 @@
 //
-//  DatabaseContentChecker.h
+//  MRDatabaseContentChecker.h
 //
 //  Created by Michael Rhodes on 11/05/2014.
 //  Copyright (c) 2014 Mike Rhodes. All rights reserved.
@@ -21,17 +21,17 @@
 /**
  * Indexing and query erors.
  */
-typedef NS_ENUM(NSInteger, DatabaseContentCheckerError) {
+typedef NS_ENUM(NSInteger, MRDatabaseContentCheckerError) {
     /**
      Validation of database failed
      */
-    DatabaseContentCheckerErrorValidation = 1
+    MRDatabaseContentCheckerErrorValidation = 1
 };
 
 /**
  Error domain for the database checker
  */
-extern NSString* const DatabaseContentCheckerErrorDomain;
+extern NSString* const MRDatabaseContentCheckerErrorDomain;
 
 /**
  Key in user info dict for error messages.
@@ -39,9 +39,9 @@ extern NSString* const DatabaseContentCheckerErrorDomain;
  A typical use would be to use componentsJoinedByString: to
  join in an assert message.
  */
-extern NSString* const DatabaseContentCheckerErrorsArray;
+extern NSString* const MRDatabaseContentCheckerErrorsArray;
 
-@interface DatabaseContentChecker : NSObject
+@interface MRDatabaseContentChecker : NSObject
 
 - (NSString*)formattedErrors:(NSError*)error;
 

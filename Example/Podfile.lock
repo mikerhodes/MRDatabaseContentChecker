@@ -1,0 +1,21 @@
+PODS:
+  - FMDB (2.3):
+    - FMDB/standard
+  - FMDB/common (2.3)
+  - FMDB/standard (2.3):
+    - FMDB/common
+  - MRDatabaseContentChecker (0.1.0):
+    - FMDB (~> 2.0)
+
+DEPENDENCIES:
+  - MRDatabaseContentChecker (from `../`)
+
+EXTERNAL SOURCES:
+  MRDatabaseContentChecker:
+    :path: ../
+
+SPEC CHECKSUMS:
+  FMDB: 8b6b69b1164e3007d7f4b3b3719e667602ec247e
+  MRDatabaseContentChecker: ba31ea7768218e30394fdc3fa006ae34257ba8d7
+
+COCOAPODS: 0.32.1

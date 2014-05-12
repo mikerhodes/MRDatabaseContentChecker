@@ -1,7 +1,8 @@
-pod "MRDatabaseContentChecker", :path => "../"
 
-target "Demo" do
+target "DatabaseContentCheckerExample" do
+    pod "MRDatabaseContentChecker", :path => "../"
 end
 
-target "DemoTests" do
+target "DatabaseContentCheckerExampleTests" do
+    pod "MRDatabaseContentChecker", :path => "../"
 end

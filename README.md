@@ -7,9 +7,18 @@ MRDatabaseContentChecker is a small library to make checking the contents
 of a database easier and more literate in your tests. It tries to stay out
 your way and make writing tedious checks simpler and less error prone.
 
+You can test both the content of **tables** and **queries**. After all,
+you get the content of a table via a query -- the table methods are just
+shorthand so it's more clear what you are checking.
+
 It requires that you are using FMDB.
 
 ## Usage
+
+You can check either the full content of database tables, or the results of
+a query (as they're both just table-like structures).
+
+### Tables
 
 The simplest example, using SenTest, is something like the following:
 
@@ -98,6 +107,23 @@ STAssertTrue([dc checkDatabase:db
                        hasRows:expectedRows
                          error:&validationError],
              [dc formattedErrors:validationError]);
+```
+
+### Queries
+
+You can check a query too! As it's basically the same, I've just including
+the method declaration below, a full example would look the same as above,
+aside from you need to write the SQL query yourself.
+
+At the moment, there's no support for placeholders -- you control the SQL
+you're generating in your tests. Or, if not, feel free to open a PR as I'm
+not averse to including further features in the slightest.
+
+``` objc
+- (BOOL)checkDatabase:(FMDatabase*)db
+                query:(NSString*)sql
+              hasRows:(NSArray*)expectedRows
+                error:(NSError* __autoreleasing *)error
 ```
 
 ## Requirements

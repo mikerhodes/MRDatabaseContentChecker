@@ -28,17 +28,15 @@ Pod::Spec.new do |s|
   s.author           = { "Michael Rhodes" => "mike.rhodes@gmail.com" }
   s.source           = { :git => "https://github.com/mikerhodes/MRDatabaseContentChecker.git", :tag => s.version.to_s }
 
-  # s.platform     = :ios, '6.0'
-  # s.ios.deployment_target = '6.0'
-  # s.osx.deployment_target = '10.8'
+  s.platform     = :ios, '6.0'
+  s.ios.deployment_target = '6.0'
+  s.osx.deployment_target = '10.8'
   s.requires_arc = true
 
   s.source_files = 'Classes'
-  # s.resources = 'Assets/*.png'
 
   s.ios.exclude_files = 'Classes/osx'
   s.osx.exclude_files = 'Classes/ios'
-  # s.public_header_files = 'Classes/**/*.h'
 
   s.dependency 'FMDB', '~> 2.0'
 end

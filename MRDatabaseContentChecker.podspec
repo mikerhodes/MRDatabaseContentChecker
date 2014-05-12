@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/mikerhodes/MRDatabaseContentChecker"
   s.license          = {:type => 'Apache', :text => license}
   s.author           = { "Michael Rhodes" => "mike.rhodes@gmail.com" }
-  s.source           = { :git => "https://github.com/mikerhodes/MRDatabaseContentChecker/MRDatabaseContentChecker.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/mikerhodes/MRDatabaseContentChecker.git", :tag => s.version.to_s }
 
   # s.platform     = :ios, '6.0'
   # s.ios.deployment_target = '6.0'

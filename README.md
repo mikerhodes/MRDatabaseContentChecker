@@ -22,5 +22,5 @@ Michael Rhodes, mike.rhodes@gmail.com
 
 ## License
 
-MRDatabaseContentChecker is available under the MIT license. See the LICENSE file for more info.
+MRDatabaseContentChecker is available under the Apache v2 license. See the LICENSE file for more info.
 

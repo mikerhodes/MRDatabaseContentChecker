@@ -14,7 +14,7 @@ EOT
 
 Pod::Spec.new do |s|
   s.name             = "MRDatabaseContentChecker"
-  s.version          = "0.1.0"
+  s.version          = "0.2.0"
   s.summary          = "Check what's in your database during testing"
   s.description      = <<-DESC
                        MRDatabaseContentChecker will check the content of
@@ -34,7 +34,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = 'Classes'
-  s.resources = 'Assets/*.png'
+  # s.resources = 'Assets/*.png'
 
   s.ios.exclude_files = 'Classes/osx'
   s.osx.exclude_files = 'Classes/ios'

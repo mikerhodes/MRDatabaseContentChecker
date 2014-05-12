@@ -27,11 +27,11 @@ FMDatabase *db = [...];
 
 NSError *validationError;
 NSArray *expectedRows = @[
-                          @[@"docId"],  // first array is column headers
-                          @[ob.docId]   // expected data starts in row 2
+                          @[@"first_name", @"surname"], // first array is column headers
+                          @[@"Mike",       @"Rhodes"]   // expected data starts in row 2
                           ];
 STAssertTrue([dc checkDatabase:db
-                         table:@"docs"
+                         table:@"users"
                        hasRows:expectedRows
                          error:&validationError],
              [dc formattedErrors:validationError]);

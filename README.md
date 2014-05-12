@@ -24,6 +24,7 @@ The simplest example, using SenTest, is something like the following:
 
 ```objc
 FMDatabase *db = [...];
+MRDatabaseContentChecker *dc = [[MRDatabaseContentChecker alloc] init];
 
 NSError *validationError;
 NSArray *expectedRows = @[
@@ -49,6 +50,7 @@ Essentially:
 The next level up is building the array programatically:
 
 ```objc
+MRDatabaseContentChecker *dc = [[MRDatabaseContentChecker alloc] init];
 NSMutableArray *expectedRows = [NSMutableArray array];
 [expectedRows addObject:@[@"sequence",
                           @"parent",

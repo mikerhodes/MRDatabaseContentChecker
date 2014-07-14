@@ -116,9 +116,7 @@ NSString* const MRDatabaseContentCheckerErrorsArray =
             [errors addObject:msg];
             break;
         }
-
-        NSLog(@"testing content of docs table");
-
+        
         for (int col = 0; col < columns.count; col++) {
             NSString *columnName = columns[col];
             NSObject *expectedValue = expectedRow[col];

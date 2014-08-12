@@ -51,7 +51,7 @@
 {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
-    [self.db executeUpdate:@"DROP Table test"];
+    [self.db executeUpdate:@"DROP TABLE test"];
 }
 
 - (void)testSuccessfulCompareOrdered

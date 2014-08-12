@@ -63,7 +63,7 @@
                            @[@"aRandomTextString1", @(26), @"someMoreRandomText"],
                            @[@"aRandomTextString4", @(25), @"someMoreRandomText"],
                            @[@"aRandomTextString9", @(27), @"someMoreRandomText"],
-                       ];
+                        ];
     
     BOOL dbCheckResult = [checker checkDatabase:self.db
                                           table:@"test"
@@ -85,7 +85,7 @@
                            @[@"aRandomTextString4", @(25), @"someMoreRandomText"],
                            @[@"aRandomTextString1", @(26), @"someMoreRandomText"],
                            @[@"aRandomTextString9", @(27), @"someMoreRandomText"],
-                           ];
+                        ];
     
     BOOL dbCheckResult = [checker checkDatabase:self.db
                                           table:@"test"

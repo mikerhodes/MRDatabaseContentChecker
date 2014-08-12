@@ -14,7 +14,7 @@ EOT
 
 Pod::Spec.new do |s|
   s.name             = "MRDatabaseContentChecker"
-  s.version          = "0.2.0"
+  s.version          = "0.3.0"
   s.summary          = "Check what's in your database during testing"
   s.description      = <<-DESC
                        MRDatabaseContentChecker will check the content of

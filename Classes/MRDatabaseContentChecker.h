@@ -53,7 +53,7 @@ extern NSString* const MRDatabaseContentCheckerErrorsArray;
 - (BOOL)checkDatabase:(FMDatabase*)db
                 table:(NSString*)table
               hasRows:(NSArray*)expectedContent
-              orderBy:(NSString *)orderby
+              orderBy:(NSArray *)orderby
                 error:(NSError* __autoreleasing *)error;
 
 @end

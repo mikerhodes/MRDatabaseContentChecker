@@ -87,15 +87,14 @@ NSString* const MRDatabaseContentCheckerErrorsArray =
 - (BOOL)checkDatabase:(FMDatabase*)db
                 table:(NSString*)table
               hasRows:(NSArray*)expectedRows
-              orderBy:(NSString *) orderby
+              orderBy:(NSArray *) orderby
                 error:(NSError* __autoreleasing *)error
 {
     NSArray *columns = expectedRows[0];
-    
     NSString *sql = [NSString stringWithFormat:@"select %@ from %@ order by %@",
                [columns componentsJoinedByString:@", "],
                table,
-               orderby];
+               [orderby componentsJoinedByString:@", "]];
 
     return [self checkDatabase:db
                          query:sql

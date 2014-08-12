@@ -66,7 +66,7 @@
     BOOL dbCheckResult = [checker checkDatabase:self.db
                                           table:@"test"
                                         hasRows:content
-                                        orderBy:@"textData"
+                                        orderBy:@[@"textData"]
                                           error:&error];
     
     XCTAssertNil(error, @"An error occured checking the database");

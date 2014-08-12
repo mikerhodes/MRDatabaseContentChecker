@@ -50,4 +50,10 @@ extern NSString* const MRDatabaseContentCheckerErrorsArray;
               hasRows:(NSArray*)expectedContent
                 error:(NSError* __autoreleasing *)error;
 
+- (BOOL)checkDatabase:(FMDatabase*)db
+                table:(NSString*)table
+              hasRows:(NSArray*)expectedContent
+              orderBy:(NSString *)orderby
+                error:(NSError* __autoreleasing *)error;
+
 @end

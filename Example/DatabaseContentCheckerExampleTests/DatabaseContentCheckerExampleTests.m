@@ -82,10 +82,10 @@
     MRDatabaseContentChecker *checker = [[MRDatabaseContentChecker alloc]init];
     NSError * error;
     
-    NSArray * content = @[ @[@"textData", @"numericData",@"moreText"],
-                           @[@"aRandomTextString4",@(25),@"someMoreRandomText"],
-                           @[@"aRandomTextString1",@(26),@"someMoreRandomText"],
-                           @[@"aRandomTextString9",@(27),@"someMoreRandomText"],
+    NSArray * content = @[ @[@"textData", @"numericData", @"moreText"],
+                           @[@"aRandomTextString4", @(25), @"someMoreRandomText"],
+                           @[@"aRandomTextString1", @(26), @"someMoreRandomText"],
+                           @[@"aRandomTextString9", @(27), @"someMoreRandomText"],
                            ];
     
     BOOL dbCheckResult = [checker checkDatabase:self.db

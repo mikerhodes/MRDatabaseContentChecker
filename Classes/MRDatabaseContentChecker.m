@@ -38,9 +38,43 @@ NSString* const MRDatabaseContentCheckerErrorsArray =
  Check that the contents of `table` match the specification in
  `expectedRows`. The first array in `expectedRows` MUST be the
  column names you want to check.
-
+ 
  Rows are assumed to be in the order presented in the array, and the table
  is assumed to contain the same number of rows as in the array.
+ 
+ Note this means you can check just a subset of the data in a
+ given table by including a subset of the columns.
+ 
+ For more information on what you can have as values to check, see
+ the documentation for checkDatabase:query:hasRows:error:, as this
+ method calls into that one after constructing a query to get all
+ the rows on the table.
+ */
+- (BOOL)checkDatabase:(FMDatabase*)db
+                table:(NSString*)table
+              hasRows:(NSArray*)expectedRows
+                error:(NSError* __autoreleasing *)error
+{
+    NSArray *columns = expectedRows[0];
+    
+    NSString *sql = [NSString stringWithFormat:@"select %@ from %@",
+               [columns componentsJoinedByString:@", "],
+               table];
+    
+    return [self checkDatabase:db
+                         query:sql
+                       hasRows:expectedRows
+                         error:error];
+}
+
+/**
+ Check that the contents of `table` match the specification in
+ `expectedRows`. The first array in `expectedRows` MUST be the
+ column names you want to check.
+
+ Rows from the database are ordered using the coloumn 
+ `orderBy` with the rows given to be in the order presented
+ by the database after ordering.
 
  Note this means you can check just a subset of the data in a
  given table by including a subset of the columns.
@@ -53,13 +87,14 @@ NSString* const MRDatabaseContentCheckerErrorsArray =
 - (BOOL)checkDatabase:(FMDatabase*)db
                 table:(NSString*)table
               hasRows:(NSArray*)expectedRows
+              orderBy:(NSArray*) orderby
                 error:(NSError* __autoreleasing *)error
 {
     NSArray *columns = expectedRows[0];
-
-    NSString *sql = [NSString stringWithFormat:@"select %@ from %@",
-                     [columns componentsJoinedByString:@", "],
-                     table];
+    NSString *sql = [NSString stringWithFormat:@"select %@ from %@ order by %@",
+               [columns componentsJoinedByString:@", "],
+               table,
+               [orderby componentsJoinedByString:@", "]];
 
     return [self checkDatabase:db
                          query:sql

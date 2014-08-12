@@ -24,21 +24,24 @@
     //need to create a databse
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *cachePath = [paths objectAtIndex:0];
+    NSString *dbPath = [cachePath stringByAppendingPathComponent:@"database.sqlite"];
     
     self.db = [FMDatabase
-               databaseWithPath:[cachePath stringByAppendingPathComponent:@"database.sqlite"]];
+               databaseWithPath:dbPath];
     [self.db open];
     [self.db executeUpdate:@"CREATE TABLE test(textData text, numericData int, moreText text)"];
     
     // Building the string ourself
-    NSArray * array = @[@4,@1,@9];
+    NSArray * array = @[@4, @1, @9];
     
-    for(int i=0; i<3;i++){
+    for(int i=0; i<3; i++) {
     
         NSString * textData = @"aRandomTextString";
         NSString * iAsString = [NSString stringWithFormat:@"%@",array[i]];
         NSString *query = [NSString stringWithFormat:@"insert into test values('%@', %d, '%@')",
-                           [textData stringByAppendingString:iAsString], 25+i,@"someMoreRandomText"];
+                           [textData stringByAppendingString:iAsString],
+                           25+i,
+                           @"someMoreRandomText"];
         [self.db executeUpdate:query];
     }
     
@@ -54,13 +57,13 @@
 - (void)testSuccessfulCompareOrdered
 {
  
-    MRDatabaseContentChecker *checker = [[MRDatabaseContentChecker alloc]init];
+    MRDatabaseContentChecker *checker = [[MRDatabaseContentChecker alloc] init];
     NSError * error;
     
-    NSArray * content = @[ @[@"textData", @"numericData",@"moreText"],
-                           @[@"aRandomTextString1",@(26),@"someMoreRandomText"],
-                          @[@"aRandomTextString4",@(25),@"someMoreRandomText"],
-                           @[@"aRandomTextString9",@(27),@"someMoreRandomText"],
+    NSArray * content = @[ @[@"textData", @"numericData", @"moreText"],
+                           @[@"aRandomTextString1", @(26), @"someMoreRandomText"],
+                           @[@"aRandomTextString4", @(25), @"someMoreRandomText"],
+                           @[@"aRandomTextString9", @(27), @"someMoreRandomText"],
                        ];
     
     BOOL dbCheckResult = [checker checkDatabase:self.db

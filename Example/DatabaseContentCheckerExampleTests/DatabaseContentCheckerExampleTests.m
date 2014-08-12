@@ -26,8 +26,7 @@
     NSString *cachePath = [paths objectAtIndex:0];
     NSString *dbPath = [cachePath stringByAppendingPathComponent:@"database.sqlite"];
     
-    self.db = [FMDatabase
-               databaseWithPath:dbPath];
+    self.db = [FMDatabase databaseWithPath:dbPath];
     [self.db open];
     [self.db executeUpdate:@"CREATE TABLE test(textData text, numericData int, moreText text)"];
     
@@ -37,7 +36,7 @@
     for(int i=0; i<3; i++) {
     
         NSString * textData = @"aRandomTextString";
-        NSString * iAsString = [NSString stringWithFormat:@"%@",array[i]];
+        NSString * iAsString = [NSString stringWithFormat:@"%@", array[i]];
         NSString *query = [NSString stringWithFormat:@"insert into test values('%@', %d, '%@')",
                            [textData stringByAppendingString:iAsString],
                            25+i,
